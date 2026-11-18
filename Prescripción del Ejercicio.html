@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prescripción del Ejercicio</title>
+<style>
+:root{--ink:#14213d;--muted:#4a5568;--bg:#f5f7f4;--card:#fff;--line:#d9dfd8;--aer:#0e7c7b;--ana:#c8611a;--soft-aer:#e3f2f1;--soft-ana:#fbeadd}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.2;margin:0 0 .5em}
+h1{font-size:clamp(2rem,5vw,3.2rem)}
+h2{font-size:1.7rem;margin-top:0}
+h3{font-size:1.15rem}
+p{margin:0 0 1em;max-width:70ch}
+header{background:var(--ink);color:#fff;padding:48px 20px 40px}
+.wrap{max-width:980px;margin:0 auto}
+header p{color:#cdd6e6;font-size:1.1rem;margin-bottom:.4em}
+.autor{font-size:.95rem;color:#9fb0cc}
+nav{position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;gap:4px;overflow-x:auto;padding:0 12px}
+nav a{padding:12px 12px;color:var(--ink);text-decoration:none;white-space:nowrap;font-size:.95rem;border-bottom:3px solid transparent}
+nav a:hover,nav a:focus-visible{border-bottom-color:var(--aer);outline:none}
+section{padding:40px 20px;border-bottom:1px solid var(--line)}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:18px}
+.card.aer{border-top:4px solid var(--aer)}
+.card.ana{border-top:4px solid var(--ana)}
+.card h3{margin-bottom:.3em}
+.card p{margin:0 0 .6em;font-size:.97rem}
+.ej{display:block;background:var(--soft-aer);border-radius:6px;padding:8px 10px;font-size:.92rem}
+.ana .ej{background:var(--soft-ana)}
+.sub{margin:14px 0 4px;font-weight:600}
+.table-scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;background:var(--card);border:1px solid var(--line)}
+th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;font-size:.95rem}
+th{background:#eef2ee}
+th.a{background:var(--soft-aer);color:#07504f}
+th.n{background:var(--soft-ana);color:#7a3a0c}
+.zonas{display:grid;grid-template-columns:repeat(4,1fr);margin:16px 0 8px;border-radius:8px;overflow:hidden;border:1px solid var(--line)}
+.zonas div{padding:14px 10px;text-align:center;font-size:.9rem;color:#fff}
+.zonas strong{display:block;font-size:1rem}
+.z1{background:#5d8aa8}.z2{background:var(--aer)}.z3{background:#b9791a}.z4{background:#a63d1f}
+.nota{border-left:4px solid var(--aer);background:var(--card);padding:12px 16px;border-radius:0 8px 8px 0;margin-top:16px;font-size:.95rem}
+.btn{display:inline-block;background:var(--ink);color:#fff;text-decoration:none;padding:12px 22px;border-radius:6px;font-weight:600}
+.btn:hover,.btn:focus-visible{background:var(--aer);outline:2px solid var(--ink);outline-offset:2px}
+ul.seg{padding-left:20px;margin:0}
+ul.seg li{margin-bottom:6px}
+footer{padding:28px 20px;text-align:center;color:var(--muted);font-size:.9rem}
+.perfil{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));margin:14px 0}
+.perfil div{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:.92rem}
+.perfil b{display:block;font-size:1.15rem;font-family:Georgia,serif}
+.aviso{background:#fff7e0;border:1px solid #e6cf8a;border-radius:8px;padding:10px 14px;font-size:.92rem;margin-bottom:16px}
+#grafica svg{width:100%;height:auto;background:var(--card);border:1px solid var(--line);border-radius:8px}
+.leyenda{display:flex;gap:14px;flex-wrap:wrap;font-size:.88rem;margin:8px 0 18px}
+.leyenda i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+.bib p{padding-left:2em;text-indent:-2em;font-size:.95rem}
+tr.desc td{background:#f1f5f9}
+@media(max-width:600px){.zonas{grid-template-columns:repeat(2,1fr)}section{padding:32px 16px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <h1>Entrena con ciencia.<br>Progresa con propósito.</h1>
+    <p>Prescripción del ejercicio: qué hacer, cuánto, con qué intensidad y cómo progresar.</p>
+    <p class="autor">Hecho por Maicol Lemos · Actividad de Educación Física</p>
+  </div>
+</header>
+
+<nav aria-label="Secciones">
+  <div class="wrap">
+    <a href="#intro">Introducción</a>
+    <a href="#evaluacion">Evaluación inicial</a>
+    <a href="#principios">Principios</a>
+    <a href="#prescripcion">Prescripción 4 meses</a>
+    <a href="#periodizacion">Periodización</a>
+    <a href="#fuerza">Fuerza</a>
+    <a href="#flexibilidad">Flexibilidad</a>
+    <a href="#neuromotor">Neuromotor</a>
+    <a href="#sesion">Sesión</a>
+    <a href="#control">Control</a>
+    <a href="#resistencia">Resistencia</a>
+    <a href="#aerobico">Aeróbico</a>
+    <a href="#anaerobico">Anaeróbico</a>
+    <a href="#comparacion">Comparación</a>
+    <a href="#ejercicios">Ejercicios</a>
+    <a href="#semana">Semana tipo</a>
+    <a href="#video">Video</a>
+    <a href="#bibliografia">Bibliografía</a>
+  </div>
+</nav>
+
+<main>
+
+<section id="intro"><div class="wrap">
+  <h2>📚 Introducción</h2>
+  <p>El entrenamiento físico utiliza diferentes métodos para desarrollar capacidades como la resistencia, la velocidad, la fuerza y la potencia. En esta página se presentan métodos de entrenamiento aeróbico y anaeróbico, junto con ejemplos de ejercicios y formas de desarrollar la resistencia cardiovascular.</p>
+  <p>Prescribir ejercicio es decidir qué hacer, cuánto, con qué intensidad y cómo progresar, según el objetivo y las necesidades de cada persona.</p>
+</div></section>
+
+<section id="evaluacion"><div class="wrap">
+  <h2>Evaluación inicial (formato E1)</h2>
+  <div class="aviso"><strong>Evaluado ficticio.</strong> Datos de ejemplo creados para esta actividad; se reemplazan por los del E1 real cuando estén disponibles.</div>
+  <div class="perfil">
+    <div>Evaluado<b>Carlos A.</b>Hombre, 28 años</div>
+    <div>Talla y peso<b>1,75 m · 82 kg</b>IMC 26,8</div>
+    <div>FC en reposo<b>72 lpm</b>FCmáx estimada 192 lpm</div>
+    <div>Presión arterial<b>120/78 mmHg</b>En reposo</div>
+    <div>Test de Cooper (12 min)<b>2.000 m</b>VO₂máx est. 33,4 ml/kg/min · regular</div>
+    <div>Nivel actual<b>Recreativo</b>Camina y juega fútbol 1 vez por semana</div>
+  </div>
+  <div class="table-scroll"><table>
+    <tr><th>Apartado</th><th>Registro</th></tr>
+    <tr><td>Antecedentes de salud (PAR-Q)</td><td>Sin respuestas afirmativas; sin lesiones ni enfermedades conocidas.</td></tr>
+    <tr><td>Disponibilidad</td><td>5 días por semana, 45–60 min por sesión; parque con pista, bicicleta, mancuernas y bandas elásticas.</td></tr>
+    <tr><td>Pruebas complementarias</td><td>Flexiones: 15 repeticiones. Plancha: 45 s. Sit and reach: 8 cm. Equilibrio monopodal con ojos abiertos: 25 s.</td></tr>
+    <tr><td>Objetivos</td><td>1) Mejorar la resistencia cardiovascular. 2) Correr 5 km continuos al final de las 16 semanas. 3) Reducir la grasa corporal de forma gradual. 4) Mejorar la fuerza general, la flexibilidad y el equilibrio para su salud.</td></tr>
+    <tr><td>Metas medibles</td><td>Cooper de 2.200 m en la semana 8 (VO₂máx ≈ 37,9) y de 2.400 m en la semana 16 (VO₂máx ≈ 42,4).</td></tr>
+  </table></div>
+  <p style="margin-top:12px;font-size:.92rem">VO₂máx estimado con la fórmula de Cooper: (distancia en m − 504,9) ÷ 44,73 (Cooper, 1968).</p>
+</div></section>
+
+<section id="principios"><div class="wrap">
+  <h2>Principios de la prescripción (FITT-VP)</h2>
+  <div class="table-scroll">
+  <table>
+    <tr><th>Componente</th><th>Qué significa</th><th>Ejemplo</th></tr>
+    <tr><td><strong>F</strong>recuencia</td><td>Veces por semana</td><td>3 a 5 días</td></tr>
+    <tr><td><strong>I</strong>ntensidad</td><td>Qué tan fuerte se trabaja</td><td>Moderada (60–75 % de la FCmáx)</td></tr>
+    <tr><td><strong>T</strong>iempo</td><td>Duración de la sesión</td><td>30 a 60 min</td></tr>
+    <tr><td><strong>T</strong>ipo</td><td>Modalidad de ejercicio</td><td>Correr, nadar, ciclismo</td></tr>
+    <tr><td><strong>V</strong>olumen</td><td>Total acumulado (tiempo × frecuencia)</td><td>150 min por semana</td></tr>
+    <tr><td><strong>P</strong>rogresión</td><td>Aumento gradual de la carga</td><td>Subir tiempo o intensidad poco a poco</td></tr>
+  </table>
+  </div>
+  <div class="nota">Recomendación general para adultos (OMS/ACSM): al menos 150 min semanales de actividad aeróbica moderada, o 75 min de actividad vigorosa, más trabajo de fuerza 2 días por semana.</div>
+
+  <h3 style="margin-top:28px">Cómo controlar la intensidad</h3>
+  <ul class="seg">
+    <li><strong>FC máxima (estimada):</strong> 220 − edad.</li>
+    <li><strong>Método Karvonen:</strong> FC objetivo = [(FCmáx − FCreposo) × % de intensidad] + FCreposo.</li>
+    <li><strong>Escala de Borg:</strong> esfuerzo percibido de 6 a 20, o de 0 a 10.</li>
+    <li><strong>Prueba del habla:</strong> en intensidad moderada se puede hablar con frases cortas; en intensidad alta solo se dicen pocas palabras.</li>
+  </ul>
+  <div class="zonas" role="list">
+    <div class="z1" role="listitem"><strong>Suave</strong>50–60 % FCmáx<br>Muy cómodo</div>
+    <div class="z2" role="listitem"><strong>Moderada</strong>60–75 % FCmáx<br>Se puede hablar</div>
+    <div class="z3" role="listitem"><strong>Alta</strong>75–90 % FCmáx<br>Frases cortas</div>
+    <div class="z4" role="listitem"><strong>Máxima</strong>más de 90 %<br>Casi máximo</div>
+  </div>
+  <p style="font-size:.9rem;color:var(--muted)">Los porcentajes son aproximados y varían según la persona y el método de cálculo.</p>
+
+  <h3 style="margin-top:28px">Sistemas energéticos</h3>
+  <div class="grid">
+    <div class="card"><h3>ATP-PC</h3><p>Esfuerzos máximos de pocos segundos (hasta unos 10 s).</p><span class="ej">Ej.: sprint corto</span></div>
+    <div class="card"><h3>Glucolítico</h3><p>Esfuerzos intensos de unos 10 s a 2 min.</p><span class="ej">Ej.: 200–400 m</span></div>
+    <div class="card"><h3>Oxidativo</h3><p>Esfuerzos prolongados y de menor intensidad.</p><span class="ej">Ej.: trotar 30 min</span></div>
+  </div>
+</div></section>
+
+<section id="resistencia"><div class="wrap">
+  <h2>❤️ Métodos para desarrollar la resistencia cardiovascular</h2>
+  <p>La resistencia cardiovascular es la capacidad del organismo para mantener una actividad física durante un período prolongado. Participan principalmente el sistema cardiovascular y el respiratorio, que permiten suministrar oxígeno a los músculos.</p>
+  <div class="grid">
+    <div class="card aer"><h3>🏃 Continuo uniforme</h3><p>Esfuerzo de intensidad baja o moderada, como trotar o nadar, durante un tiempo prolongado y sin pausas. Es ideal para crear una base aeróbica sólida.</p></div>
+    <div class="card aer"><h3>🔥 Interválico (HIIT)</h3><p>Alterna períodos cortos de ejercicio intenso con descanso o baja intensidad. Ayuda a realizar esfuerzos intensos y recuperarse entre ellos.</p></div>
+    <div class="card aer"><h3>⚡ Alta intensidad (SIT)</h3><p>Sprints o esfuerzos máximos en bloques muy cortos, seguidos de recuperación. Se emplea para trabajar esfuerzos de máxima intensidad.</p></div>
+  </div>
+  <div class="nota"><strong>Beneficios:</strong> mayor consumo máximo de oxígeno (VO₂máx), corazón más eficiente, menor frecuencia cardíaca en reposo, mejor control del peso y menor riesgo de enfermedades cardiovasculares.</div>
+</div></section>
+
+<section id="aerobico"><div class="wrap">
+  <h2>🏃 Métodos de entrenamiento aeróbico</h2>
+  <p>Son métodos en los que predomina el uso del oxígeno para producir energía. Se utilizan principalmente para desarrollar la resistencia cardiovascular.</p>
+  <div class="grid">
+    <div class="card aer">
+      <h3>1. Método continuo</h3>
+      <p>Ejercicio sin pausas durante un período determinado.</p>
+      <p class="sub">Continuo uniforme</p><p>Intensidad constante.</p>
+      <span class="ej">Ej.: correr 30 min a intensidad moderada.</span>
+      <p class="sub">Continuo variable</p><p>La intensidad cambia durante el ejercicio.</p>
+      <span class="ej">Ej.: correr 40 min alternando ritmos suaves, moderados y rápidos.</span>
+    </div>
+    <div class="card aer">
+      <h3>2. Método Fartlek</h3>
+      <p>Alterna diferentes velocidades e intensidades durante una actividad continua.</p>
+      <span class="ej">5 min suave → 2 min rápido → 3 min moderado → 1 min rápido → repetir.</span>
+    </div>
+    <div class="card aer">
+      <h3>3. Intervalado extensivo</h3>
+      <p>Alterna trabajo con recuperaciones relativamente cortas, generalmente a intensidades moderadas.</p>
+      <span class="ej">Ej.: 4 × 5 min de carrera + 2 min de recuperación.</span>
+    </div>
+    <div class="card aer">
+      <h3>4. Intervalado intensivo</h3>
+      <p>Períodos de trabajo más intensos, intercalados con recuperaciones.</p>
+      <span class="ej">Ej.: 6 × 3 min de carrera intensa + 2 min de recuperación.</span>
+    </div>
+  </div>
+</div></section>
+
+<section id="anaerobico"><div class="wrap">
+  <h2>⚡ Métodos de entrenamiento anaeróbico</h2>
+  <p>Son métodos en los que predominan los sistemas energéticos anaeróbicos, especialmente en esfuerzos de alta intensidad y corta duración.</p>
+  <div class="grid">
+    <div class="card ana"><h3>🏁 1. Repeticiones</h3><p>Esfuerzos de alta o máxima intensidad con recuperaciones amplias.</p><span class="ej">6 × 100 m a máxima velocidad, recuperación de 3–5 min.</span></div>
+    <div class="card ana"><h3>🔥 2. HIIT</h3><p>Alterna períodos de alta intensidad con períodos de recuperación.</p><span class="ej">30 s de sprint + 30 s de recuperación × 10.</span></div>
+    <div class="card ana"><h3>💨 3. Velocidad</h3><p>Busca realizar movimientos a la mayor velocidad posible.</p><span class="ej">10 × 30 m de sprint, recuperación completa.</span></div>
+    <div class="card ana"><h3>🏃 4. Resistencia a la velocidad</h3><p>Esfuerzos rápidos con duración suficiente para generar fatiga y mantener una velocidad elevada.</p><span class="ej">6 × 200 m a alta intensidad con recuperación entre repeticiones.</span></div>
+    <div class="card ana"><h3>🔄 5. Circuito</h3><p>Varios ejercicios consecutivos con pausas breves o moderadas. Se adapta a fuerza, potencia, resistencia muscular y acondicionamiento metabólico.</p><span class="ej">Sentadillas → flexiones → saltos → abdominales → sprint.</span></div>
+  </div>
+</div></section>
+
+<section id="comparacion"><div class="wrap">
+  <h2>⚖️ Aeróbico vs. anaeróbico</h2>
+  <div class="table-scroll">
+  <table>
+    <tr><th class="a">❤️ Aeróbico</th><th class="n">⚡ Anaeróbico</th></tr>
+    <tr><td>Predomina el uso del oxígeno.</td><td>Predominan los sistemas energéticos anaeróbicos.</td></tr>
+    <tr><td>Puede incluir esfuerzos prolongados.</td><td>Generalmente esfuerzos cortos y de alta intensidad.</td></tr>
+    <tr><td>Desarrolla principalmente la resistencia cardiovascular.</td><td>Puede trabajar velocidad, fuerza, potencia y resistencia a esfuerzos intensos.</td></tr>
+    <tr><td>Ejemplos: correr, nadar y ciclismo.</td><td>Ejemplos: sprint, repeticiones y circuitos.</td></tr>
+  </table>
+  </div>
+  <div class="nota"><strong>Nota:</strong> durante el ejercicio los sistemas energéticos trabajan conjuntamente; la diferencia se refiere al sistema que predomina según la intensidad y la duración del esfuerzo.</div>
+</div></section>
+
+<section id="ejercicios"><div class="wrap">
+  <h2>💪 Ejercicios recomendados</h2>
+  <div class="grid">
+    <div class="card"><h3>🏃 Caminar o correr</h3><p>Forma accesible y efectiva de activar grandes grupos musculares y trabajar la resistencia cardiovascular.</p></div>
+    <div class="card"><h3>🚴 Ciclismo</h3><p>Ejercicio de bajo impacto para las articulaciones, útil para desarrollar la resistencia.</p></div>
+    <div class="card"><h3>🏊 Natación</h3><p>Involucra gran parte de los músculos del cuerpo y reduce el impacto sobre las articulaciones.</p></div>
+    <div class="card"><h3>🪢 Saltar la cuerda</h3><p>Eleva rápidamente la frecuencia cardíaca y permite un trabajo cardiovascular intenso en poco tiempo.</p></div>
+  </div>
+</div></section>
+
+<section id="semana"><div class="wrap">
+  <h2>Microciclo semanal integrado (Carlos A.)</h2>
+  <div class="table-scroll">
+  <table>
+    <tr><th>Día</th><th>Componentes</th><th>Duración aprox.</th></tr>
+    <tr><td>Lunes</td><td>Cardio continuo + flexibilidad</td><td>40–55 min</td></tr>
+    <tr><td>Martes</td><td>Fuerza A + neuromotor + flexibilidad</td><td>55–60 min</td></tr>
+    <tr><td>Miércoles</td><td>Descanso activo (caminata suave)</td><td>Libre</td></tr>
+    <tr><td>Jueves</td><td>Cardio Fartlek o intervalado + resistencia complementaria + neuromotor + flexibilidad (ver sesión tipo)</td><td>58 min</td></tr>
+    <tr><td>Viernes</td><td>Fuerza B + neuromotor + flexibilidad</td><td>55–60 min</td></tr>
+    <tr><td>Sábado</td><td>Cardio largo continuo + flexibilidad</td><td>45–55 min</td></tr>
+    <tr><td>Domingo</td><td>Descanso</td><td></td></tr>
+  </table>
+  </div>
+  <h3 style="margin-top:28px">Recomendaciones de seguridad</h3>
+  <ul class="seg">
+    <li>Calentar de 5 a 10 min antes y hacer vuelta a la calma después.</li>
+    <li>Hidratarse antes, durante y después del ejercicio.</li>
+    <li>Progresar de forma gradual, sin saltos bruscos de carga.</li>
+    <li>Respetar los días de descanso y recuperación.</li>
+    <li>Si hay enfermedades, lesiones o síntomas como dolor de pecho o mareo, consultar a un profesional de la salud antes de entrenar.</li>
+  </ul>
+</div></section>
+
+<section id="prescripcion"><div class="wrap">
+  <h2>Prescripción de ejercicio para la salud: 4 meses para Carlos A.</h2>
+  <p>Se usa la frecuencia cardíaca de reserva (FCR = 192 − 72 = 120 lpm) con el método de Karvonen (Karvonen et al., 1957). La intensidad se controla también con la escala de Borg (Borg, 1982), siguiendo los principios del ACSM (2021) y de Garber et al. (2011).</p>
+  <div class="table-scroll"><table>
+    <tr><th>Zona</th><th>% FCR</th><th>FC objetivo</th><th>Uso</th></tr>
+    <tr><td>Z1 Recuperación</td><td>40–50 %</td><td>120–132 lpm</td><td>Calentamiento y vuelta a la calma</td></tr>
+    <tr><td>Z2 Aeróbica suave</td><td>50–60 %</td><td>132–144 lpm</td><td>Base aeróbica</td></tr>
+    <tr><td>Z3 Aeróbica moderada</td><td>60–70 %</td><td>144–156 lpm</td><td>Continuo y Fartlek</td></tr>
+    <tr><td>Z4 Umbral</td><td>70–85 %</td><td>156–174 lpm</td><td>Intervalado y picos de Fartlek</td></tr>
+    <tr><td>Z5 Máxima</td><td>85–95 %</td><td>174–186 lpm</td><td>No se usa en este plan</td></tr>
+  </table></div>
+  <h3 style="margin-top:24px">FITT-VP por mesociclo</h3>
+  <div class="table-scroll"><table>
+    <tr><th></th><th>M1 Adaptación (sem 1–4)</th><th>M2 Desarrollo (sem 5–8)</th><th>M3 Intensificación (sem 9–12)</th><th>M4 Consolidación (sem 13–16)</th></tr>
+    <tr><td><strong>F</strong>recuencia</td><td colspan="4">5 días por semana: 3 cardiovasculares (lunes, jueves y sábado) y 2 de fuerza con trabajo neuromotor (martes y viernes). La flexibilidad se hace al final de cada sesión.</td></tr>
+    <tr><td><strong>I</strong>ntensidad</td><td>50–60 % FCR<br>132–144 lpm</td><td>60–70 % FCR, picos 70–85 %<br>144–174 lpm</td><td>65–85 % FCR<br>150–174 lpm</td><td>60–80 % FCR<br>144–168 lpm</td></tr>
+    <tr><td><strong>T</strong>iempo</td><td>17–30 min por sesión</td><td>25–40 min</td><td>30–40 min</td><td>35–50 min</td></tr>
+    <tr><td><strong>T</strong>ipo</td><td>Continuo uniforme: caminata rápida y trote suave</td><td>Continuo variable y Fartlek</td><td>Intervalado extensivo e intensivo, más continuo</td><td>Continuo largo, Fartlek e intervalado intensivo</td></tr>
+    <tr><td><strong>V</strong>olumen cardio</td><td>50–80 min/sem</td><td>65–105 min/sem</td><td>75–120 min/sem</td><td>90–140 min/sem</td></tr>
+    <tr><td><strong>P</strong>rogresión</td><td>+5 a 10 min por semana</td><td>Se añaden picos de Fartlek</td><td>Se añaden intervalos de trabajo</td><td>Se mantiene la carga y se reevalúa</td></tr>
+  </table></div>
+  <p style="margin-top:12px;font-size:.92rem">El volumen cardiovascular estructurado llega a 140 min por semana (semana 15), cerca de los 150 min mínimos recomendados por la OMS (2020); se completa con caminatas en el día a día. Las dos sesiones de fuerza cumplen la recomendación de entrenar la fuerza 2 o más días por semana.</p>
+</div></section>
+
+<section id="periodizacion"><div class="wrap">
+  <h2>Periodización del entrenamiento</h2>
+  <p><strong>Macrociclo:</strong> 16 semanas orientadas a la resistencia cardiovascular. <strong>Mesociclos:</strong> 4 bloques de 4 semanas. <strong>Microciclos:</strong> 16 semanas con estructura 3:1, es decir, 3 de carga creciente y 1 de descarga (volumen cercano al 60 %), con evaluación de control en las semanas 8 y 16.</p>
+  <div class="leyenda">
+    <span><i style="background:#5d8aa8"></i>M1 Adaptación</span>
+    <span><i style="background:#0e7c7b"></i>M2 Desarrollo</span>
+    <span><i style="background:#b9791a"></i>M3 Intensificación</span>
+    <span><i style="background:#a63d1f"></i>M4 Consolidación</span>
+  </div>
+  <div id="grafica" aria-label="Gráfica de minutos de cardio por semana"></div>
+  <p style="font-size:.88rem;color:var(--muted)">Gráfica de creación propia: minutos semanales de entrenamiento cardiovascular.</p>
+  <div class="table-scroll"><table id="micro">
+    <tr><th>Sem</th><th>Mesociclo</th><th>Min cardio</th><th>Tipo de microciclo</th><th>Observación</th></tr>
+  </table></div>
+</div></section>
+
+<section id="fuerza"><div class="wrap">
+  <h2>Entrenamiento con resistencia (fuerza)</h2>
+  <p><strong>Modalidades:</strong> peso corporal, mancuernas, bandas elásticas y máquinas. <strong>Técnicas:</strong> circuito de resistencia en M1 para aprender los gestos, series tradicionales en M2 a M4 y superseries de músculos antagonistas en M4. La carga se estima por esfuerzo percibido, porque el evaluado no tiene una prueba de 1RM (ACSM, 2021).</p>
+  <div class="table-scroll"><table>
+    <tr><th></th><th>M1 (sem 1–4)</th><th>M2 (sem 5–8)</th><th>M3 (sem 9–12)</th><th>M4 (sem 13–16)</th></tr>
+    <tr><td>Series × repeticiones</td><td>2 × 12–15</td><td>2–3 × 10–12</td><td>3 × 8–12</td><td>3 × 8–12</td></tr>
+    <tr><td>Intensidad</td><td>50–60 % 1RM<br>esfuerzo 5–6/10</td><td>60–70 % 1RM</td><td>65–75 % 1RM</td><td>70–75 % 1RM</td></tr>
+    <tr><td>Descanso entre series</td><td>60–90 s</td><td>90 s</td><td>2 min</td><td>2 min</td></tr>
+    <tr><td>Técnica</td><td>Circuito con peso corporal y bandas</td><td>Series tradicionales con mancuernas</td><td>Series tradicionales con mancuernas</td><td>Series con superseries antagonistas</td></tr>
+    <tr><td>Progresión</td><td>Se aprende la técnica antes de subir la carga</td><td colspan="3">Aumento de 2–10 % de carga cuando se logran 1 o 2 repeticiones más en 2 sesiones seguidas (ACSM, 2009)</td></tr>
+  </table></div>
+  <div class="grid" style="margin-top:16px">
+    <div class="card"><h3>Fuerza A (martes)</h3><p>Sentadilla goblet, press de pecho con mancuernas, remo con mancuerna, peso muerto rumano y plancha frontal.</p></div>
+    <div class="card"><h3>Fuerza B (viernes)</h3><p>Zancadas, flexiones, remo con banda, puente de glúteos, press de hombro y dead bug.</p></div>
+  </div>
+  <p style="margin-top:12px;font-size:.92rem">Cada grupo muscular grande se trabaja 2 veces por semana, con al menos 48 horas entre sesiones.</p>
+</div></section>
+
+<section id="flexibilidad"><div class="wrap">
+  <h2>Flexibilidad</h2>
+  <p>Se trabaja 5 días por semana, de 7 a 10 minutos al final de cada sesión, cuando los músculos están calientes (ACSM, 2021; Garber et al., 2011). Se estira hasta sentir una tensión leve, nunca dolor.</p>
+  <div class="table-scroll"><table>
+    <tr><th>Técnica</th><th>Cuándo</th><th>Dosis</th></tr>
+    <tr><td>Estática</td><td>Al final de cada sesión</td><td>M1: 2 × 15 s · M2: 2 × 20 s · M3: 3 × 20–30 s · M4: 3 × 30 s por estiramiento</td></tr>
+    <tr><td>Dinámica</td><td>En el calentamiento</td><td>8–10 repeticiones por movimiento: círculos de cadera, zancadas con rotación, balanceos de pierna</td></tr>
+    <tr><td>FNP (contracción-relajación)</td><td>1 vez por semana desde M3</td><td>Contracción de 3 a 6 s y estiramiento asistido de 10 a 30 s</td></tr>
+  </table></div>
+  <p style="margin-top:12px;font-size:.92rem">Estiramientos: cuádriceps, isquiotibiales, glúteo, pantorrilla, flexores de cadera, pectoral y espalda alta.</p>
+</div></section>
+
+<section id="neuromotor"><div class="wrap">
+  <h2>Entrenamiento neuromotor</h2>
+  <p>Trabaja equilibrio, coordinación y agilidad. Se hace 2 días por semana (martes y viernes), 20 minutos por sesión, dentro de la frecuencia de 2 a 3 días que recomienda el ACSM (Garber et al., 2011).</p>
+  <div class="table-scroll"><table>
+    <tr><th>Mesociclo</th><th>Enfoque</th><th>Ejercicios</th></tr>
+    <tr><td>M1</td><td>Equilibrio estático</td><td>Equilibrio monopodal 3 × 30 s por pierna y marcha en tándem</td></tr>
+    <tr><td>M2</td><td>Equilibrio inestable y agilidad básica</td><td>Monopodal sobre cojín y escalera de agilidad</td></tr>
+    <tr><td>M3</td><td>Agilidad</td><td>Conos con cambios de dirección y saltos coordinados</td></tr>
+    <tr><td>M4</td><td>Doble tarea</td><td>Equilibrio monopodal con lanzamiento y recepción de balón, y circuito de agilidad</td></tr>
+  </table></div>
+</div></section>
+
+<section id="sesion"><div class="wrap">
+  <h2>Sesión tipo: desarrollo cardiovascular</h2>
+  <p>Semana 6 (M2), jueves. Foco cardiovascular (Fartlek) que incluye los cuatro componentes: cardio, resistencia, flexibilidad y neuromotor. Duración total: 58 minutos.</p>
+  <div class="table-scroll"><table>
+    <tr><th>Parte</th><th>Componente</th><th>Duración</th><th>Contenido</th><th>Intensidad</th></tr>
+    <tr><td>Calentamiento</td><td>Cardio y flexibilidad dinámica</td><td>8 min</td><td>Trote suave y movilidad dinámica: círculos de cadera, zancadas con rotación, balanceos de pierna</td><td>Z1–Z2 (120–144 lpm)</td></tr>
+    <tr><td>Neuromotor</td><td>Equilibrio y agilidad</td><td>8 min</td><td>Equilibrio monopodal 3 × 30 s por pierna y escalera de agilidad (4 pasadas)</td><td>Esfuerzo 3–4/10</td></tr>
+    <tr><td>Principal</td><td>Cardiovascular</td><td>24 min</td><td>2 × (5 min suave + 2 min rápido + 3 min moderado + 2 min rápido)</td><td>Suave Z2 (132–144), moderado Z3 (144–156), rápido Z4 (156–174 lpm)</td></tr>
+    <tr><td>Resistencia</td><td>Fuerza</td><td>8 min</td><td>Circuito con peso corporal, 2 vueltas: 12 sentadillas, 10 flexiones, 12 remos con banda y plancha de 30 s</td><td>Esfuerzo 5–6/10</td></tr>
+    <tr><td>Vuelta a la calma</td><td>Flexibilidad estática</td><td>10 min</td><td>Caminata de 3 min y 6 estiramientos de 2 × 20 s: cuádriceps, isquiotibiales, glúteo, pantorrilla, pectoral y espalda alta</td><td>Z1 (120–132 lpm) y tensión leve</td></tr>
+  </table></div>
+</div></section>
+
+<section id="control"><div class="wrap">
+  <h2>Control del entrenamiento</h2>
+  <ul class="seg">
+    <li><strong>En cada sesión:</strong> FC media, esfuerzo percibido (Borg 0–10) y FC de recuperación a 1 minuto.</li>
+    <li><strong>Cada semana:</strong> minutos totales, sueño y sensación general de fatiga.</li>
+    <li><strong>Cada 4 semanas:</strong> peso y perímetro abdominal.</li>
+    <li><strong>Evaluaciones:</strong> test de Cooper en las semanas 8 y 16, comparadas con la inicial (2.000 m).</li>
+    <li><strong>Pruebas complementarias:</strong> flexiones, plancha, sit and reach y equilibrio monopodal en las semanas 0, 8 y 16.</li>
+    <li><strong>Criterio de ajuste:</strong> si las sesiones Z2 se perciben por encima de 8/10 o la FC en reposo sube de forma sostenida, se repite la semana o se adelanta la descarga.</li>
+  </ul>
+</div></section>
+
+<script>
+(function(){
+  var d=[[1,1,60,'C','Se aprende el ritmo suave'],[2,1,70,'C',''],[3,1,80,'C',''],[4,1,50,'D','Descarga'],
+  [5,2,85,'C','Se inicia el continuo variable'],[6,2,95,'C','Sesión tipo Fartlek'],[7,2,105,'C',''],[8,2,65,'D','Descarga y test de Cooper (meta 2.200 m)'],
+  [9,3,100,'C','Se inicia el intervalado extensivo'],[10,3,110,'C',''],[11,3,120,'C','Se añade intervalado intensivo'],[12,3,75,'D','Descarga'],
+  [13,4,125,'C',''],[14,4,135,'C',''],[15,4,140,'C','Semana de mayor volumen'],[16,4,90,'D','Descarga y test de Cooper (meta 2.400 m)']];
+  var col=['#5d8aa8','#0e7c7b','#b9791a','#a63d1f'],nom=['M1 Adaptación','M2 Desarrollo','M3 Intensificación','M4 Consolidación'];
+  var s='<svg viewBox="0 0 640 215" role="img"><line x1="14" y1="180" x2="630" y2="180" stroke="#9aa5b1"/>';
+  var t='';
+  d.forEach(function(r,i){var h=r[2]*1.2,x=20+i*38;
+    s+='<rect x="'+x+'" y="'+(180-h)+'" width="28" height="'+h+'" rx="3" fill="'+col[r[1]-1]+'"'+(r[3]=='D'?' opacity=".55"':'')+'/>'+
+       '<text x="'+(x+14)+'" y="'+(174-h)+'" font-size="10" text-anchor="middle" fill="#14213d">'+r[2]+'</text>'+
+       '<text x="'+(x+14)+'" y="196" font-size="10" text-anchor="middle" fill="#4a5568">S'+r[0]+'</text>';
+    t+='<tr'+(r[3]=='D'?' class="desc"':'')+'><td>'+r[0]+'</td><td>'+nom[r[1]-1]+'</td><td>'+r[2]+'</td><td>'+(r[3]=='D'?'Descarga':'Carga')+'</td><td>'+r[4]+'</td></tr>';
+  });
+  s+='<text x="20" y="212" font-size="10" fill="#4a5568">Barras claras: semanas de descarga</text></svg>';
+  document.getElementById('grafica').innerHTML=s;
+  document.getElementById('micro').insertAdjacentHTML('beforeend',t);
+})();
+</script>
+
+<section id="video"><div class="wrap">
+  <h2>🎥 Video de entrenamiento</h2>
+  <p>Video relacionado con los métodos y ejercicios de entrenamiento físico.</p>
+  <a class="btn" href="https://youtu.be/l4BSdHu2J6k" target="_blank" rel="noopener">Ver video en YouTube</a>
+</div></section>
+
+<section id="conclusion" style="border-bottom:0"><div class="wrap">
+  <h2>📝 Conclusión</h2>
+  <p>Los diferentes métodos de entrenamiento permiten desarrollar las capacidades físicas de acuerdo con los objetivos de cada persona. Los métodos aeróbicos son especialmente importantes para desarrollar la resistencia cardiovascular, mientras que los anaeróbicos permiten trabajar velocidad, fuerza, potencia y resistencia a esfuerzos intensos.</p>
+  <p>Una buena prescripción combina el método adecuado con la intensidad, el volumen y la progresión correctos.</p>
+</div></section>
+
+<section id="bibliografia" style="border-bottom:0"><div class="wrap bib">
+  <h2>Bibliografía</h2>
+  <p>American College of Sports Medicine. (2009). Progression models in resistance training for healthy adults. <em>Medicine & Science in Sports & Exercise, 41</em>(3), 687–708.</p>
+  <p>American College of Sports Medicine. (2021). <em>ACSM's guidelines for exercise testing and prescription</em> (11.ª ed.). Wolters Kluwer.</p>
+  <p>American College of Sports Medicine. ([completar año]). <em>Manual ACSM para la valoración y prescripción del ejercicio</em> ([completar edición]). [Completar editorial].</p>
+  <p>Borg, G. A. (1982). Psychophysical bases of perceived exertion. <em>Medicine & Science in Sports & Exercise, 14</em>(5), 377–381.</p>
+  <p>Cooper, K. H. (1968). A means of assessing maximal oxygen intake: Correlation between field and treadmill testing. <em>JAMA, 203</em>(3), 201–204.</p>
+  <p>Garber, C. E., Blissmer, B., Deschenes, M. R., Franklin, B. A., Lamonte, M. J., Lee, I.-M., Nieman, D. C., & Swain, D. P. (2011). Quantity and quality of exercise for developing and maintaining cardiorespiratory, musculoskeletal, and neuromotor fitness in apparently healthy adults. <em>Medicine & Science in Sports & Exercise, 43</em>(7), 1334–1359.</p>
+  <p>Karvonen, M. J., Kentala, E., & Mustala, O. (1957). The effects of training on heart rate: A longitudinal study. <em>Annales Medicinae Experimentalis et Biologiae Fenniae, 35</em>(3), 307–315.</p>
+  <p>Organización Mundial de la Salud. (2020). <em>Directrices de la OMS sobre actividad física y comportamiento sedentario.</em> OMS.</p>
+  <p>[Completar autor y año]. (s. f.). <em>Prescripción del ejercicio para la resistencia cardiovascular</em> (pp. 143–158). Institución Universitaria Antonio José Camacho.</p>
+  <h3 style="margin-top:24px">Créditos de imágenes</h3>
+  <p>Las gráficas y tablas de esta página son de creación propia. Si agregas imágenes de Pexels, Unsplash o Freepik, cita aquí autor, sitio y enlace de cada una.</p>
+</div></section>
+</main>
+
+<footer>Prescripción del Ejercicio · Actividad de Educación Física · Hecho por Maicol Lemos</footer>
+
+</body>
+</html>
